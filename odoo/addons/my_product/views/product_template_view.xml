@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.product.form</field>
+        <field name="model">product.template</field>
+        <field
+            name="inherit_id"
+            ref="product.product_template_only_form_view"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page string="Rental information">
+                    <group string="General">
+                        <field name="max_guests" />
+                        <field name="beds" />
+                        <field name="bedrooms" />
+                        <field name="bathrooms" />
+                        <field name="street" />
+                        <field name="number" />
+                        <field name="postal_code" />
+                    </group>
+                    <group string="Amenities">
+                        <field name="air_conditioning_available" />
+                        <field name="terrace_available" />
+                        <field name="garden_available" />
+                        <field name="pool_available" />
+                        <field name="hot_tub_available" />
+                        <field name="ev_charger_available" />
+                        <field name="indoor_fireplace_available" />
+                        <field name="outdoor_fireplace_available" />
+                        <field name="dedicated_workspace_available" />
+                        <field name="gym_available" />
+                    </group>
+                    <group string="Accessibility">
+                        <field name="toilet_grab_bar_available" />
+                        <field name="shower_grab_bar_available" />
+                        <field name="step_free_shower_available" />
+                        <field name="shower_bath_chair_available" />
+                        <field name="step_free_bedroom_access_available" />
+                        <field name="wide_bedroom_entrance_available" />
+                        <field name="step_free_access_available" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
