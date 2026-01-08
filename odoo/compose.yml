@@ -1,0 +1,26 @@
+services:
+  mydb:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: myodoo
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+
+  web:
+    image: odoo:18.0
+    depends_on:
+      - mydb
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./addons:/mnt/extra-addons
+    environment:
+      HOST: mydb
+      USER: odoo
+      PASSWORD: myodoo
+
+volumes:
+  odoo-db-data:
